@@ -23,7 +23,34 @@ réimplémenter **getVelocity()** et **getMass()**
 
 ## Exercices 2
 
+    Quel patron de conception utilise la méthode getVelocity() pour parcourir les composants d'un véhicule ? Quel avantage apporte ce patron ?
+    
+    Modifier la structure de donnée utilisée pour stocker les composants d'un véhicule de Set à List. Doit-on modifier la réalisation de la méthode getVelocity() ?
+
+La méthode **getVelocity()** utilise le patron de conception **Itérateur** pour parcourir les composants d'un véhicule. L'itérateur est utilisé ici pour parcourir chaque objet **MobileObject** contenu dans la collection components sans exposer les détails de la structure sous-jacente de cette collection. 
+Cela permet à la classe Vehicle de séparer la manière dont ses composants sont stockés de la logique utilisée pour calculer la vitesse du véhicule basée sur les vitesses et les masses de ses composants.
+
+### Avantage du Patron de Conception Itérateur
+L'avantage principal de l'utilisation du patron de conception Itérateur, comme démontré dans getVelocity(), est qu'il fournit une manière d'accéder aux éléments d'une collection de manière séquentielle sans avoir besoin de connaître sa structure interne. Cela permet de :
+
+* **Découpler les structures de données de l'algorithme** : Le code qui utilise l'itérateur pour parcourir les éléments peut rester constant même si la structure de données sous-jacente change (par exemple, passer d'un HashSet à un ArrayList).
+* **Simplifier le code** : En encapsulant la logique de parcours, le code client reste plus simple et plus propre.
+* **Standardiser l'accès** : Peu importe la structure de données spécifique utilisée (liste, ensemble, tableau, etc.), l'utilisation d'un itérateur offre une interface standard pour parcourir ses éléments.
+
+En modifiant la structure de données pour stocker les composants de notre véhicule de **Set** à **List**, nous n'avons pas besoin de changer l'implémentation de notre méthode **getVelocity()**.
+L'utilisation d'un **Iterator*, compatible avec toutes les structures de données standard en Java qui implémentent l'interface Iterable, assure que l'itération sur les éléments reste la même. 
+Ce changement vers une List n'affecte donc pas la fonctionnalité de **getVelocity()**, car l'accès séquentiel aux éléments via l'itérateur ne dépend pas du type spécifique de collection utilisé. 
+Cependant, en optant pour une List, nous acceptons la possibilité d'ajouter des doublons, ce qui pourrait influencer les calculs de la vitesse et de la masse si des instances identiques de **MobileObject** sont ajoutées plusieurs fois.
+
 ## Exercices 3
+    
+    Utilisez le patron de conception de création singleton pour assurer qu'il n'y a qu'une seule instance de la classe Clock dans l'application. Les deux roues doivent donc utiliser cette même instance et les vitesses doivent être homogènes.
+    
+    Expliquez, en quelques lignes, les étapes de la réalisation de ce patron dans le code.
+    
+    Attention, seulement une seule instance doit être instantiable de la classe Clock.
+
+
 
 ## Exercices 4
 

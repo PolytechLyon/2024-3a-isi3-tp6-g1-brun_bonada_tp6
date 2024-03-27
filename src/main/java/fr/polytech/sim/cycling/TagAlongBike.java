@@ -5,15 +5,10 @@ import fr.polytech.sim.transport.Wheel;
 
 public class TagAlongBike extends SimpleBike {
 
-    private Vehicle childBike;
+    private SimpleBike childBike;
 
-    public TagAlongBike(Vehicle childBike) {
+    public TagAlongBike(SimpleBike childBike) {
         this.childBike = childBike ;
         components.add(this.childBike);
     }
-
-
-
-
-
 }
