@@ -66,6 +66,16 @@ Pour régler ce problème de synchronisation, on utilise le design pattern Singl
 
 ## Exercices 5
 
+
+    Utiliser le patron de conception patron de méthode[^4] pour centraliser cette étape commune à un seul endroit et d'éviter le code en doublon.
+    
+    Modifiez la classe NamedLogger et ses sous-classes pour réaliser ce patron.
+
+
+
+
+
+
 ## Exercices 6
 
 ## Exercices 7
