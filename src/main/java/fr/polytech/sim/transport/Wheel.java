@@ -13,7 +13,7 @@ public class Wheel implements MobileObject {
     private static final double DEFAULT_MASSE = 10;
 
     private final Logger logger = new ConsoleLogger("Wheel");
-    private final Clock clock = new Clock();
+    private final Clock clock = Clock.getInstance();
     private final Bike drive;
 
     /**

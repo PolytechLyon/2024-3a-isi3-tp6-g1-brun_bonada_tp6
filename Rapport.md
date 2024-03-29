@@ -51,6 +51,16 @@ Cependant, en optant pour une List, nous acceptons la possibilité d'ajouter des
     Attention, seulement une seule instance doit être instantiable de la classe Clock.
 
 
+Pour régler ce problème de synchronisation, on utilise le design pattern Singleton que l'on peut mettre en place en suivant ces étapes : 
+
+- **Déclarer un constructeur privé** qui permet d'empêcher l'instanciation directe de la classe.
+
+- **Créer une méthode statique pour obtenir l'instance unique** : Dans notre cas on la nommme `getInstance()`. Elle retourne l'instance unique de la classe et la crée si elle n'a pas encore été instanciée.
+
+- **Utiliser l'instance unique** : On remplace le constructeur de `Clock`utilisé dans la classe `Wheel` par la méthode statique `getInstance()`. Cela garantit l'utilisation de la même instance unique de la classe dans toute l'application.
+
+
+
 
 ## Exercices 4
 
