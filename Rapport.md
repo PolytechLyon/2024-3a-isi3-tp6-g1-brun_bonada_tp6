@@ -74,20 +74,23 @@ Pour régler ce problème de synchronisation, on utilise le design pattern Singl
 Non, elles n'appartiennent pas au même paquetage. **Bike** est dans `fr.polytech.sim.cycling` et **Wheel** est dans `fr.polytech.sim.transport`.
 
 2. Quel type de dépendance y a-t-il entre les deux classes?
-La dépendance est de type directe, où la classe **Wheel** dépend de la classe **Bike** pour obtenir la force de propulsion *getPush()*.
+Il existe une dépendance mutuelle entre les paquetages `transport` et `cycling` : le paquetage `cycling` dépend du paquetage `transport` à travers l'héritage de la classe **Vehicle** dans **Bike**, tandis que `transport` (par exemple, la classe **Wheel**) dépend de la classe **Bike** dans `cycling` pour obtenir des fonctionnalités spécifiques, telles que la propulsion. 
+Cela crée une dépendance cyclique au niveau des paquetages.
 
 3. Cette dépendance adhère-t-elle aux bonnes pratiques de conception?
-Non, car bien que **Bike** soit une abstraction (classe abstraite), le fait que **Wheel** dépende directement de **Bike** peut être un signe de couplage fort, ce qui n'est pas idéal.
-Une meilleure pratique serait de dépendre d'une interface qui représente le concept de puissance de propulsion, plutôt que d'une implémentation spécifique ou même d'une classe abstraite spécifique.
+Les dépendances cycliques entre paquetages sont généralement considérées comme une mauvaise pratique en conception logicielle car elles rendent le code plus difficile à comprendre, à maintenir et à tester. 
+Elles peuvent également compliquer la compilation et le déploiement des modules. Idéalement, la structure de dépendance devrait être acyclique.
 
 4. Quelle fonctionnalité de la classe Bike utilise la classe Wheel?
 La classe **Wheel** utilise la fonctionnalité *getPush()* de la classe **Bike** pour calculer la vélocité.
 
 5. Y a-t-il déjà une abstraction de la classe Bike qui isole cette fonctionnalité?
-La classe **Vehicle** est une abstraction qui définit la méthode _getPush()_, mais Wheel ne l'utilise pas directement. La méthode est héritée et mise en œuvre par **Bike**.
+Oui, l'abstraction existe sous forme de la classe **Vehicle**, qui est étendue par **Bike**. La classe **Vehicle** définit l'interface `getPush()` que **Bike** implémente.
 
 6. Dans quel paquetage se trouve cette abstraction?
 L'abstraction **Vehicle** est située dans le paquetage `fr.polytech.sim.transport`.
+
+Pour casser la dépendance cyclique entre les paquetages, nous allons faire dépendre **Wheel** de l'abstraction déja existante **Vehicle**
 
 ## Exercices 5
 
