@@ -101,6 +101,25 @@ Pour casser la dépendance cyclique entre les paquetages, nous allons faire dép
 
 
 
+Pour factoriser le codes nous avons apportés des modifications à la classe `NamedLogger` et ses classes filles `FileLogger` et `ConsoleLogger`.
+
+##### Modifications apportées à la classe NamedLogger :
+
+- Déplacement de la logique de fabrication du message final dans la méthode `log()`.
+- Création d'une méthode abstraite `writeMessage()` pour l'écriture du message final.
+- Utilisation de cette méthode abstraite dans la méthode `log()` pour écrire le message.
+
+
+##### Impact sur les sous-classes FileLogger et ConsoleLogger :
+
+Les sous-classes `FileLogger` et `ConsoleLogger` sont désormais responsables de l'implémentation de la méthode `writeMessage()`, ce qui leur permet de définir leur propre façon d'écrire les messages finaux, respectivement dans un fichier et sur la console.
+
+Ces modifications rendent le système plus extensible et maintenable, tout en améliorant la lisibilité du code et en réduisant la duplication de logique.
+
+
+
+
+
 
 
 

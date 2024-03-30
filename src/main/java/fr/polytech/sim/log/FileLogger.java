@@ -18,14 +18,16 @@ public class FileLogger extends NamedLogger {
         super(name);
     }
 
+
     @Override
-    synchronized public void log(String format, Object... args) {
-        String entry = String.format(format, args);
-        String message = String.format("%s\t%s\n", this.name, entry);
+    protected void writeMessage(String message)
+    {
         try (FileWriter fileWriter = new FileWriter(FILE_NAME, true)) {
             fileWriter.write(message);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+
 }
