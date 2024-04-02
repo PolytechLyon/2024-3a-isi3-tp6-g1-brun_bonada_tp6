@@ -98,6 +98,8 @@ Pour casser la dépendance cyclique entre les paquetages, nous allons faire dép
 
 ## Exercices 7
 
+Facade
+
 ## Exercices 8
 
 
