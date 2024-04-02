@@ -132,6 +132,10 @@ Ce Design pattern est différent de **Singleton** car contrairement à ce dernie
 
 ## Exercices 7
 
+Nous avons utilisé le design pattern **decorateur** afin de pouvoir rajouter facilement un indicateur temporel à nos logs sans avoir à modifier le code de de la classe ConsoleLogger.
+Concrètement on crée une classe **TimeDecorateur** qui implémente **Logger** et qui prends un paramètre de son constructeur un objet **Logger** auquel il ajoute un timeStamp dans le redéfinition de la méthode **log**
+
+
 
 
 ## Exercices 8
