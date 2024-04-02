@@ -35,7 +35,7 @@ public class Context {
      * @param <T>   expected instance type
      */
     public static <T> Iterator<T> injectAll(Class<T> klass) {
-        /* TODO: implement the right logic */
-        throw new UnsupportedOperationException("Method not implemented");
+        ServiceLoader<T> serviceLoader = ServiceLoader.load(klass);
+        return serviceLoader.iterator();
     }
 }
