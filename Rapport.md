@@ -110,20 +110,25 @@ Pour factoriser le codes nous avons apportés des modifications à la classe `Na
 - Utilisation de cette méthode abstraite dans la méthode `log()` pour écrire le message.
 
 
-##### Impact sur les sous-classes FileLogger et ConsoleLogger :
+##### Impact sur les classes filles: FileLogger et ConsoleLogger :
 
 Les sous-classes `FileLogger` et `ConsoleLogger` sont désormais responsables de l'implémentation de la méthode `writeMessage()`, ce qui leur permet de définir leur propre façon d'écrire les messages finaux, respectivement dans un fichier et sur la console.
 
 Ces modifications rendent le système plus extensible et maintenable, tout en améliorant la lisibilité du code et en réduisant la duplication de logique.
 
 
-
-
-
-
-
-
 ## Exercices 6
+
+Dans cet exercice nous avons implémenté un version allégée du **design pattern Factory**
+
+Concrètement nous avons créé une classe **FactoryLogger** avec une **méthode static CreateLogger** qui permet d'instancier un objet **ConsoleLogger**
+Cela permet de déporter le choix Logger (Console ou fichier texte) dans cette classe et de ne pas avoir à  modifier d'autres partie du code en cas de changement.
+
+
+Ce Design pattern est différent de **Singleton** car contrairement à ce dernier, le design pattern **Factory** permet instancier plusieurs objets, il garantit seulement qu'un seul type d'objet (dans ce cas le type *ConsoleLogger*) peut être instancié (mais il peut l'être plusieurs fois dans différentes parties du code)
+
+
+
 
 ## Exercices 7
 
