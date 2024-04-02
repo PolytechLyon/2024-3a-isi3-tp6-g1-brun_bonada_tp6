@@ -1,6 +1,6 @@
 # Compte Rendu du TP 1 : Patrons de Conceptions
 
-Noms des étudiants du binôme :
+Noms des étudiants du binôme : BONADA Nathan, BRUN Luc
 
 ## Exercices 1
 
@@ -132,6 +132,23 @@ Ce Design pattern est différent de **Singleton** car contrairement à ce dernie
 
 ## Exercices 7
 
+
+
 ## Exercices 8
 
+    Quel patron de conception suit la classe Context vis-à-vis l'outil ServiceLoader ?
 
+La classe **Context** suit le design pattern Facade
+
+    Utilisez la classe utilitaire Context pour injecter un objet de type Bike dans la simulation, au lieu de l'instancier avec le mot clef new. Changez la classe injectée de SimpleBike à TagAlongBike.
+
+    Peut-on avoir plusieurs lignes dans le fichier fr.polytech.sim.cycling.Bike ? À quoi correspond chaque de ces lignes ?
+
+Oui, le fichier `META-INF/services/fr.polytech.sim.cycling.Bike` peut contenir plusieurs lignes, chaque ligne représentant une implémentation concrète de **Bike**. Lorsque **ServiceLoader** est utilisé pour charger les services, il crée un itérateur sur toutes les implémentations listées dans ce fichier.
+
+## Exercices 9
+
+    Quel patron de conception propose cette méthode pour parcourir tous les objets d'un type donné disponibles dans le contexte applicatif ?
+
+La méthode **injectAll()** de la classe Context retourne un **Iterator<T>**, où **T** est le type d'objet demandé. Ce type de retour et la méthode elle-même suggèrent l'utilisation du patron de conception Iterator. 
+Ce patron permet de parcourir une collection d'objets sans exposer ses représentations internes.

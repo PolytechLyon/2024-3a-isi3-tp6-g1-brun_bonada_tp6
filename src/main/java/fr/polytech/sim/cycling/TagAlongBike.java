@@ -7,6 +7,10 @@ public class TagAlongBike extends SimpleBike {
 
     private SimpleBike childBike;
 
+    public TagAlongBike() {
+        this(new SimpleBike());
+    }
+
     public TagAlongBike(SimpleBike childBike) {
         this.childBike = childBike ;
         components.add(this.childBike);
