@@ -12,13 +12,11 @@ public class TimeDecorator implements Logger {
 
     @Override
     public void log(String format, Object... args) {
-        // Get current timestamp
+
         String timestamp = getCurrentTimestamp();
 
-        // Format log message
         String message = String.format("[%s] %s", timestamp, String.format(format, args));
 
-        // Delegate log to the wrapped logger
         logger.log(message);
     }
 
